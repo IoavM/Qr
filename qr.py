@@ -23,11 +23,16 @@ if qr_text:
     # Convertir el código QR en imagen
     img = qr.make_image(fill='black', back_color='white')
 
-    # Mostrar la imagen en Streamlit
+    # Guardar la imagen en un buffer de memoria
     buffer = io.BytesIO()
     img.save(buffer, format="PNG")
+    buffer.seek(0)  # Reiniciar el puntero del buffer al inicio
+
+    # Mostrar la imagen en Streamlit
     st.image(buffer, caption="Código QR generado", use_column_width=True)
-      st.download_button(
+
+    # Botón de descarga
+    st.download_button(
         label="Descargar código QR",
         data=buffer,
         file_name="codigo_qr.png",
