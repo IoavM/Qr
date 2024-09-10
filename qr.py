@@ -27,3 +27,9 @@ if qr_text:
     buffer = io.BytesIO()
     img.save(buffer, format="PNG")
     st.image(buffer, caption="Código QR generado", use_column_width=True)
+      st.download_button(
+        label="Descargar código QR",
+        data=buffer,
+        file_name="codigo_qr.png",
+        mime="image/png"
+    )
