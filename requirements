@@ -1,0 +1,4 @@
+import streamlit as st  # Para la interfaz web de Streamlit
+import qrcode           # Para generar el código QR
+from PIL import Image    # Para manejar imágenes (usado internamente por qrcode)
+import io         
